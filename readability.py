@@ -21,7 +21,7 @@ def readability(text: str) -> int:
         text (str): The text to find the grade of
 
     Returns:
-        grade (int): The grade of the text
+        int: The grade of the text
 
     Raises:
         ValueError: If the string doesnt contain any characters or if it is only whitespace
