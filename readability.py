@@ -13,7 +13,10 @@ def main():
 # By iterating over the text and counting each element
 # And inputting the values in the coleman-liau index
 def readability(text):
-    letters, sentences, words = 0, 0, 1
+    if len(text) == 0 or text.isspace():
+        raise ValueError("Input must contain a valid sentence.")
+    
+    letters, sentences, words = 0, 0, 0
 
     for char in text:
         if char == ' ':
@@ -22,6 +25,8 @@ def readability(text):
             sentences += 1
         elif char.isalpha():
             letters += 1
+
+    words += 1
 
     avg_letters = letters / words * 100
     avg_sentences = sentences / words * 100
