@@ -34,8 +34,6 @@ def readability(text):
     words = len(text.split())
     sentences = sum(1 for char in text if char in ['.', '!', '?'])
 
-    words += 1
-
     avg_letters = letters / words * 100
     avg_sentences = sentences / words * 100
 
