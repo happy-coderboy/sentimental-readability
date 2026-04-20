@@ -1,30 +1,38 @@
 # Program for finding the grade of some text
 def main():
+    """Uses the readability function to find the grade of the given text"""
+
     text = input("Text: ")
     grade = readability(text)
-    if grade >= 1 and grade <= 16:
-        print(f"Grade {grade}")
-    elif grade < 1:
+    if grade < 1:
         print("Before Grade 1")
     elif grade > 16:
         print("Grade 16+")   
+    else:  
+        print(f"Grade {grade}")
 
-# Function for finding the grade
-# By iterating over the text and counting each element
-# And inputting the values in the coleman-liau index
+# Function to calculate the coleman-liau readability index of some text
+# Outputs the estimated US grade level
 def readability(text):
+    """
+    Calculates coleman-liau readability index of any given text
+
+    Args:
+        text (str): The text to find the grade of
+
+    Returns:
+        grade (int): The grade of the text
+
+    Raises:
+        ValueError: If the string doesnt contain any characters or if it is only whitespace
+    """
+    
     if len(text) == 0 or text.isspace():
         raise ValueError("Input must contain a valid sentence.")
     
-    letters, sentences, words = 0, 0, 0
-
-    for char in text:
-        if char == ' ':
-            words += 1
-        elif char in ['.', '!', '?']:
-            sentences += 1
-        elif char.isalpha():
-            letters += 1
+    letters = sum(1 for char in text if char.isalpha())
+    words = len(text.split())
+    sentences = sum(1 for char in text if char in ['.', '!', '?'])
 
     words += 1
 
