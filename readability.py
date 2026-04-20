@@ -13,7 +13,7 @@ def main():
 
 # Function to calculate the coleman-liau readability index of some text
 # Outputs the estimated US grade level
-def readability(text):
+def readability(text: str) -> int:
     """
     Calculates coleman-liau readability index of any given text
 
