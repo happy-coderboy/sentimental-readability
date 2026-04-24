@@ -1,6 +1,6 @@
 # Program for finding the grade of some text
 def main():
-    """Uses the readability function to find the grade of the given text"""
+    """Use the readability function to find the grade of the given text."""
 
     text = input("Text: ")
     grade = readability(text)
@@ -16,7 +16,7 @@ def main():
 # Outputs the estimated US grade level
 def readability(text: str) -> int:
     """
-    Calculates coleman-liau readability index of any given text
+    Calculate coleman-liau readability index of any given text.
 
     Args:
         text (str): The text to find the grade of
@@ -28,7 +28,7 @@ def readability(text: str) -> int:
         ValueError: If the string doesnt contain any characters or if it is only whitespace
     """
     
-    if len(text) == 0 or text.isspace():
+    if len(text) == 0 or text.isspace():                       
         raise ValueError("Input must contain a valid sentence.")
     
     letters = sum(1 
