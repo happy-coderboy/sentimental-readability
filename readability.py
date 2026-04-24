@@ -11,6 +11,7 @@ def main():
     else:  
         print(f"Grade {grade}")
 
+
 # Function to calculate the coleman-liau readability index of some text
 # Outputs the estimated US grade level
 def readability(text: str) -> int:
@@ -30,14 +31,27 @@ def readability(text: str) -> int:
     if len(text) == 0 or text.isspace():
         raise ValueError("Input must contain a valid sentence.")
     
-    letters = sum(1 for char in text if char.isalpha())
+    letters = sum(1 
+                  for char 
+                  in text 
+                  if char.isalpha())
+    
     words = len(text.split())
-    sentences = sum(1 for char in text if char in ['.', '!', '?'])
+
+    sentences = sum(1 
+                    for char 
+                    in text 
+                    if char in ['.', '!', '?'])
 
     avg_letters = letters / words * 100
     avg_sentences = sentences / words * 100
 
-    grade = round(0.0588 * avg_letters - 0.296 * avg_sentences - 15.8)
+    grade = round( 0.0588 
+                  * avg_letters 
+                  - 0.296 
+                  * avg_sentences
+                  - 15.8)
     return grade
+
 
 main()
